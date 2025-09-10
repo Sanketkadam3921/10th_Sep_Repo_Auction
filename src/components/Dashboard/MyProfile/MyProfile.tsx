@@ -181,7 +181,6 @@ const MyProfile: React.FC = () => {
                   id="companyName"
                   className="form-input"
                   placeholder="Enter your company name"
-                  {...register('companyName')}
                 />
               </div>
             </div>
@@ -197,7 +196,6 @@ const MyProfile: React.FC = () => {
                 rows={3}
                 className="form-input"
                 placeholder="Enter your company address"
-                {...register('companyAddress')}
               />
             </div>
 
