@@ -1,0 +1,467 @@
+.ap-otp-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Strong centering fallback to prevent external CSS from shifting the layout */
+.ap-otp-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+}
+
+.ap-otp-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.ap-otp-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Ensure the card is centered and scrolls if viewport is too small */
+.ap-otp-card {
+  margin: 0 auto;
+  max-height: calc(100vh - 40px);
+}
+
+.ap-otp-card > * { box-sizing: border-box; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ap-otp-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 30px 30px 25px;
+  color: white;
+  position: relative;
+}
+
+.ap-otp-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.ap-otp-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Ensure brand text is vertically centered next to logo */
+.ap-otp-logo-row > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ap-otp-logo-badge {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ap-otp-logo-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.ap-otp-brand-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.ap-otp-brand-sub {
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.ap-otp-inner {
+  padding: 35px 30px 30px;
+}
+
+.ap-otp-admin-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.ap-otp-admin-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ap-otp-form-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.ap-otp-form-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.ap-otp-form-icon {
+  width: 22px;
+  height: 22px;
+  color: #667eea;
+}
+
+.ap-otp-form-subtitle {
+  color: #718096;
+  font-size: 14px;
+  margin: 0;
+}
+
+.ap-otp-form-body {
+  margin-bottom: 25px;
+}
+
+.ap-otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ap-otp-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ap-otp-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 6px;
+}
+
+.ap-otp-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-align: center;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.ap-otp-input:focus {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.ap-otp-input.ap-otp-error {
+  border-color: #e53e3e;
+  background: #fef5f5;
+}
+
+.ap-otp-error-msg {
+  color: #e53e3e;
+  font-size: 13px;
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+.ap-otp-hint {
+  color: #718096;
+  font-size: 12px;
+  margin-top: 4px;
+  padding-left: 4px;
+  font-style: italic;
+}
+
+.ap-otp-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ap-otp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ap-otp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.ap-otp-btn:hover::before {
+  left: 100%;
+}
+
+.ap-otp-btn:active {
+  transform: translateY(0);
+}
+
+.ap-otp-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ap-otp-btn-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.ap-otp-btn:hover .ap-otp-btn-icon {
+  transform: translateX(3px);
+}
+
+.ap-otp-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ap-otp-resend {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.ap-otp-btn-secondary {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.ap-otp-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #667eea;
+  transform: translateY(-1px);
+}
+
+.ap-otp-resend-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ap-otp-countdown {
+  color: #718096;
+  font-size: 14px;
+  margin: 0;
+}
+
+.ap-otp-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.ap-otp-footer-text {
+  color: #718096;
+  font-size: 14px;
+  margin: 0;
+}
+
+.ap-otp-footer-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ap-otp-footer-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.ap-otp-backhome {
+  padding: 20px 30px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.ap-otp-backhome-link {
+  color: #718096;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.ap-otp-backhome-link:hover {
+  color: #667eea;
+  transform: translateX(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .ap-otp-wrapper {
+    padding: 10px;
+  }
+  
+  .ap-otp-card {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .ap-otp-header,
+  .ap-otp-inner,
+  .ap-otp-backhome {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .ap-otp-brand-title {
+    font-size: 20px;
+  }
+  
+  .ap-otp-form-title {
+    font-size: 20px;
+  }
+  
+  .ap-otp-input {
+    font-size: 20px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .ap-otp-card {
+    background: rgba(26, 32, 44, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .ap-otp-form-title {
+    color: #e2e8f0;
+  }
+  
+  .ap-otp-label {
+    color: #e2e8f0;
+  }
+  
+  .ap-otp-input {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .ap-otp-input:focus {
+    background: #2d3748;
+    border-color: #667eea;
+  }
+  
+  .ap-otp-footer {
+    border-color: #4a5568;
+  }
+  
+  .ap-otp-backhome {
+    background: #1a202c;
+    border-color: #4a5568;
+  }
+}

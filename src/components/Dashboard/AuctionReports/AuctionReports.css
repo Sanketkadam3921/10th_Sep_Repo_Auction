@@ -1,0 +1,666 @@
+/* AuctionReports Component - Glass Morphism Design System */
+
+/* Wrapper with animated background */
+.ap-reports-wrapper {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.ap-reports-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Header Section */
+.ap-reports-header {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ap-reports-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ap-reports-header:hover::before {
+  left: 100%;
+}
+
+.ap-reports-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ap-reports-title-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.ap-reports-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ap-reports-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 400;
+}
+
+.ap-reports-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Filter Select */
+.ap-reports-filter-select {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.875rem;
+  min-width: 250px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.ap-reports-filter-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ap-reports-filter-select option {
+  background: rgba(30, 41, 59, 0.95);
+  color: white;
+  padding: 0.5rem;
+}
+
+/* Overview Cards Container */
+.ap-reports-overview {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual Overview Cards */
+.ap-reports-overview-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.ap-reports-overview-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ap-reports-overview-card:hover::before {
+  left: 100%;
+}
+
+.ap-reports-overview-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ap-reports-overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ap-reports-overview-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Auction Details Grid - Improved formatting and spacing */
+.ap-reports-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.ap-reports-details-grid>div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  min-height: 80px;
+}
+
+.ap-reports-details-grid>div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ap-reports-details-grid>div:hover::before {
+  left: 100%;
+}
+
+.ap-reports-details-grid>div:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ap-reports-details-grid strong {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+.ap-reports-details-grid>div>span,
+.ap-reports-details-grid>div:not(:has(strong)) {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Bid Summary Table */
+.ap-reports-bid-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+  /* Add smooth scrolling for horizontal overflow */
+  -webkit-overflow-scrolling: touch;
+}
+
+.ap-reports-bid-table {
+  width: 100%;
+  min-width: 600px;
+  /* Prevent table from getting too narrow */
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.ap-reports-bid-table th,
+.ap-reports-bid-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+  /* Prevent text wrapping */
+}
+
+.ap-reports-bid-table th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rank-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.ap-row-l1 {
+  background: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4CAF50;
+}
+
+/* Mobile Responsive Styles - Enhanced for better visibility */
+@media screen and (max-width: 768px) {
+  .ap-reports-header {
+    padding: 1.5rem;
+  }
+
+  .ap-reports-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ap-reports-title {
+    font-size: 1.75rem;
+  }
+
+  .ap-reports-title-section {
+    min-width: 100%;
+  }
+
+  .ap-reports-filter-select {
+    min-width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 0.9rem;
+    /* Better text visibility in mobile */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .ap-reports-overview {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .ap-reports-overview-card {
+    padding: 1.25rem;
+  }
+
+  .ap-reports-overview-title {
+    font-size: 1.1rem;
+  }
+
+  .ap-reports-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .ap-reports-details-grid>div {
+    padding: 0.875rem;
+    min-height: 70px;
+  }
+
+  .ap-reports-details-grid strong {
+    font-size: 0.75rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .ap-reports-details-grid>div>span,
+  .ap-reports-details-grid>div:not(:has(strong)) {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .ap-reports-bid-table-wrapper {
+    margin: 1rem -1rem 0;
+    /* Extend to screen edges */
+    border-radius: 0;
+    /* Improved mobile scrolling */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  .ap-reports-bid-table {
+    min-width: 100%;
+    font-size: 0.85rem;
+    border-radius: 0;
+  }
+
+  .ap-reports-bid-table th,
+  .ap-reports-bid-table td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+
+  /* Make company name column flexible */
+  .ap-reports-bid-table th:nth-child(2),
+  .ap-reports-bid-table td:nth-child(2) {
+    white-space: normal;
+    word-break: break-word;
+    min-width: 120px;
+    max-width: 150px;
+  }
+}
+
+/* Enhanced mobile view for very small screens */
+@media screen and (max-width: 480px) {
+  .ap-reports-filter-select {
+    padding: 1rem;
+    font-size: 0.85rem;
+    /* Ensure full text visibility */
+    line-height: 1.2;
+  }
+
+  .ap-reports-bid-table-wrapper {
+    overflow-x: visible;
+  }
+
+  .ap-reports-bid-table,
+  .ap-reports-bid-table thead,
+  .ap-reports-bid-table tbody,
+  .ap-reports-bid-table th,
+  .ap-reports-bid-table td,
+  .ap-reports-bid-table tr {
+    display: block;
+  }
+
+  .ap-reports-bid-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .ap-reports-bid-table tr {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .ap-reports-bid-table td {
+    border: none;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .ap-reports-bid-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    min-width: 100px;
+  }
+
+  .rank-badge {
+    margin-left: auto;
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  /* Improved spacing for details grid in mobile */
+  .ap-reports-details-grid>div {
+    padding: 1rem 0.75rem;
+  }
+
+  .ap-reports-overview-card {
+    padding: 1rem;
+  }
+
+  .ap-reports-overview-header {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Horizontal scroll indicator */
+.ap-reports-bid-table-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* View Mode Buttons */
+.ap-reports-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.ap-reports-view-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.ap-reports-view-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Role Indicators */
+.ap-role-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 1rem;
+}
+
+.ap-role-indicator.auctioneer {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.ap-role-indicator.participant {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Status Badges */
+.ap-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ap-status-badge.completed {
+  background: rgba(16, 185, 129, 0.2);
+  color: rgba(34, 197, 94, 1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Completed Auctions Table */
+.ap-reports-completed-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.ap-reports-completed-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.ap-reports-completed-table th,
+.ap-reports-completed-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ap-reports-completed-table th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ap-reports-completed-table td {
+  color: white;
+  font-weight: 500;
+}
+
+.ap-reports-completed-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ap-auction-no {
+  font-weight: 700;
+  color: #93c5fd;
+}
+
+.ap-auction-details {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Download and Action Buttons */
+.ap-download-btn,
+.ap-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+}
+
+.ap-download-btn:hover,
+.ap-contact-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ap-contact-btn {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.ap-contact-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}

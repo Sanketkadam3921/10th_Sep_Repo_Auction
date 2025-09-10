@@ -1,0 +1,40 @@
+ /* Redesigned Auction Loading Spinner */
+
+.ap-loading-spinner { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.35rem; font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; z-index:9999; background:radial-gradient(circle at 30% 40%,#eef2ff 0%,#e2e8f0 45%,#dbeafe 100%); transition:opacity .28s ease,visibility .28s ease; opacity:1; visibility:visible; padding:2rem; overflow:hidden; }
+.ap-loading-spinner.ap-hidden { opacity:0; visibility:hidden; }
+
+.ap-loading-spinner::before, .ap-loading-spinner::after { content:''; position:absolute; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(102,126,234,.18),rgba(102,126,234,0) 70%); animation:apPulse 5s ease-in-out infinite; filter:blur(4px); opacity:.55; }
+.ap-loading-spinner::after { animation-delay:2.3s; width:520px; height:520px; }
+@keyframes apPulse { 0%,100% { transform:scale(.9); opacity:.45;} 50% { transform:scale(1.05); opacity:.7; } }
+
+.ap-loading-logo { position:relative; width:120px; height:120px; }
+.ap-loading-logo-ring { position:absolute; inset:0; border-radius:50%; background:conic-gradient(from 0deg,rgba(102,126,234,.15),rgba(118,75,162,.25),rgba(102,126,234,.15)); animation:apRotate 4s linear infinite; mask:radial-gradient(circle,#000 58%,transparent 60%); filter:blur(.5px); }
+@keyframes apRotate { from { transform:rotate(0deg);} to { transform:rotate(360deg);} }
+
+/* center the main block exactly in the spinner container */
+.ap-loading-logo-block { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:54px; height:54px; border-radius:14px; background:linear-gradient(145deg,#ffffff,#e5e9f5); box-shadow:0 4px 10px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05) inset; animation:apBlockBounce 1.9s ease-in-out infinite; }
+@keyframes apBlockBounce { 0%,100% { transform:translate(-50%,-50%) scale(1);} 50% { transform:translate(-50%,-58%) scale(1.04);} }
+
+/* position hammer slightly above and centered horizontally relative to block */
+.ap-loading-logo-hammer { position:absolute; left:50%; top:28%; width:50px; height:50px; transform-origin:center; transform:translate(-50%,-50%) rotate(-18deg); animation:apHammer 1.9s cubic-bezier(.66,.04,.36,1.02) infinite; }
+@keyframes apHammer { 0%,60%,100% { transform:translate(-50%,-50%) rotate(-18deg);} 35% { transform:translate(-50%,-50%) rotate(8deg) translate(0,2px);} }
+.ap-loading-logo-icon { width:50px; height:50px; color:#6366f1; filter:drop-shadow(0 2px 4px rgba(0,0,0,.15)); }
+
+.ap-loading-logo-block::after { content:''; position:absolute; left:50%; top:50%; width:10px; height:10px; background:rgba(99,102,241,.5); border-radius:50%; transform:translate(-50%,-50%) scale(0); animation:apRipple 1.9s ease-out infinite; }
+@keyframes apRipple { 0%,60%,100% { transform:translate(-50%,-50%) scale(0); opacity:0;} 35% { transform:translate(-50%,-50%) scale(1.9); opacity:.45;} }
+
+.ap-loading-text { color:#1e293b; font-size:.9rem; font-weight:600; margin:0; text-align:center; letter-spacing:.6px; animation:apTextPulse 2.6s ease-in-out infinite; background:linear-gradient(90deg,#334155,#64748b,#334155); -webkit-background-clip:text; background-clip:text; color:transparent; }
+@keyframes apTextPulse { 0%,100% { opacity:.55;} 50% { opacity:1; } }
+
+@media (max-width:480px){ .ap-loading-logo { width:90px; height:90px;} .ap-loading-logo-block { width:44px; height:44px;} .ap-loading-logo-hammer { width:40px; height:40px;} .ap-loading-logo-icon { width:40px; height:40px;} .ap-loading-text { font-size:.8rem;} }
+
+@media (prefers-reduced-motion:reduce){ .ap-loading-logo-ring, .ap-loading-logo-block, .ap-loading-logo-hammer, .ap-loading-logo-block::after, .ap-loading-text { animation:none!important; } }
+
+@media (prefers-color-scheme:dark){ .ap-loading-spinner { background:radial-gradient(circle at 60% 40%,#0f172a 0%,#1e293b 55%,#0f172a 100%);} .ap-loading-logo-block { background:linear-gradient(145deg,#1e293b,#334155); box-shadow:0 4px 10px rgba(0,0,0,.5),0 2px 4px rgba(255,255,255,.03) inset;} .ap-loading-logo-icon { color:#818cf8;} .ap-loading-text { background:linear-gradient(90deg,#94a3b8,#e2e8f0,#94a3b8); -webkit-background-clip:text; background-clip:text; } } 
+
+
+
+
+
+
+

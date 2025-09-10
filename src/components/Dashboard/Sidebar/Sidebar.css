@@ -1,0 +1,463 @@
+/* Sidebar Component Styles - Namespaced with ap-sidebar prefix */
+
+
+
+#dashboard-sidebar {
+  background: #0f172a;
+  color: white;
+}
+
+#setsidebar {
+  color: white;
+}
+
+
+
+
+
+
+/* Sidebar Container */
+.ap-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  z-index: 50;
+  background: var(--card-background);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Sidebar States */
+.ap-sidebar-closed {
+  transform: translateX(-100%);
+}
+
+.ap-sidebar-open {
+  transform: translateX(0);
+}
+
+.ap-sidebar.ap-sidebar-open {
+  border: none;
+}
+
+
+/* Sidebar Header */
+.ap-sidebar-header {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+}
+
+.ap-sidebar-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ap-sidebar-logo-badge {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.ap-sidebar-logo-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.ap-sidebar-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+}
+
+.ap-sidebar-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ap-sidebar-close-btn:hover {
+  background: var(--background-color);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+.ap-sidebar-close-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Navigation */
+.ap-sidebar-nav {
+  flex: 1;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: white;
+}
+
+.ap-sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.ap-sidebar-nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.ap-sidebar-nav-link:hover,
+.ap-sidebar-nav-link:focus {
+  background: var(--background-color);
+  color: var(--text-primary);
+  transform: translateX(4px);
+  outline: none;
+}
+
+.ap-sidebar-nav-link:hover::before {
+  width: 4px;
+}
+
+.ap-sidebar-nav-link-active {
+  background: white;
+  /* subtle highlight */
+  color: black;
+  box-shadow: inset 4px 0 0 rgba(255, 255, 255, 0.8);
+  /* left bar */
+}
+
+
+
+.ap-sidebar-nav-link-active::before {
+  width: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  /* background: black; */
+}
+
+.ap-sidebar-nav-link-active:hover {
+  transform: translateX(0);
+}
+
+.ap-sidebar-nav-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.ap-sidebar-nav-text {
+  font-weight: 500;
+}
+
+.ap-sidebar-user-info {
+  border: none !important;
+}
+
+/* Sidebar Footer */
+.ap-sidebar-footer {
+  padding: 1.5rem;
+  border-top: 0px solid var(--border-color);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+}
+
+/* User Info */
+.ap-sidebar-user-info {
+
+  padding: 1rem;
+  background: #0f172a;
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.ap-sidebar-user-name {
+  font-weight: 600;
+  /* color: var(--text-primary); */
+  color: white;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.ap-sidebar-user-company {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.ap-sidebar-user-phone {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.ap-sidebar-user-role {
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Logout Button */
+.ap-sidebar-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: transparent;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ap-sidebar-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+  transform: translateY(-1px);
+}
+
+.ap-sidebar-logout-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.ap-sidebar-logout-text {
+  font-weight: 500;
+}
+
+/* Scrollbar Styling */
+.ap-sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ap-sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ap-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.ap-sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+
+/* Large screens - Always visible */
+@media (min-width: 1024px) {
+  .ap-sidebar {
+    transform: translateX(0) !important;
+    visibility: visible;
+  }
+
+  .ap-sidebar-close-btn {
+    display: none;
+  }
+}
+
+/* Medium screens - Collapsible */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .ap-sidebar {
+    width: 260px;
+  }
+
+  .ap-sidebar-header {
+    padding: 1rem;
+  }
+
+  .ap-sidebar-nav {
+    padding: 1rem 0.75rem;
+  }
+
+  .ap-sidebar-footer {
+    padding: 1rem;
+  }
+}
+
+/* Small screens - Full overlay */
+@media (max-width: 767px) {
+  .ap-sidebar {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .ap-sidebar-nav-link {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .ap-sidebar-nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .ap-sidebar {
+    max-width: 260px;
+  }
+
+  .ap-sidebar-header {
+    padding: 1rem 0.75rem;
+  }
+
+  .ap-sidebar-brand-title {
+    font-size: 1.125rem;
+  }
+
+  .ap-sidebar-nav {
+    padding: 1rem 0.5rem;
+  }
+
+  .ap-sidebar-nav-link {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .ap-sidebar-footer {
+    padding: 0.75rem;
+  }
+}
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  .ap-sidebar {
+    background: rgba(30, 41, 59, 0.95);
+    border-right-color: #334155;
+  }
+  
+  .ap-sidebar-header {
+    border-bottom-color: #334155;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  }
+  
+  .ap-sidebar-brand-title {
+    color: #f8fafc;
+  }
+  
+  .ap-sidebar-close-btn {
+    border-color: #475569;
+    color: #cbd5e1;
+  }
+  
+  .ap-sidebar-close-btn:hover {
+    background: #334155;
+    color: #f8fafc;
+    border-color: #667eea;
+  }
+  
+  .ap-sidebar-nav-link {
+    color: #cbd5e1;
+  }
+  
+  .ap-sidebar-nav-link:hover,
+  .ap-sidebar-nav-link:focus {
+    background: #334155;
+    color: #f8fafc;
+  }
+  
+  .ap-sidebar-footer {
+    border-top-color: #334155;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  }
+  
+  .ap-sidebar-user-info {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .ap-sidebar-user-name {
+    color: #f8fafc;
+  }
+  
+  .ap-sidebar-user-company {
+    color: #cbd5e1;
+  }
+  
+  .ap-sidebar-user-phone {
+    color: #cbd5e1;
+  }
+  
+  .ap-sidebar-logout-btn {
+    border-color: #475569;
+    color: #cbd5e1;
+  }
+  
+  .ap-sidebar-logout-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    color: #ef4444;
+  }
+} */
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+  .ap-sidebar,
+  .ap-sidebar-nav-link,
+  .ap-sidebar-close-btn,
+  .ap-sidebar-logout-btn {
+    transition: none;
+  }
+}
+
+/* Focus-visible for better keyboard navigation */
+.ap-sidebar-nav-link:focus-visible,
+.ap-sidebar-close-btn:focus-visible,
+.ap-sidebar-logout-btn:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+  border-radius: 8px;
+}

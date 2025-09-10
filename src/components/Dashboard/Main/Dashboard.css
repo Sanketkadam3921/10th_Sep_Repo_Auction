@@ -1,0 +1,367 @@
+/* Dashboard Main Component Styles - Namespaced with ap-dashboard prefix */
+
+/* Dashboard Container */
+.ap-dashboard {
+  min-height: 100vh;
+  /* background: var(--background-color); */
+  background:  #0f172a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Mobile Backdrop */
+.ap-dashboard-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(4px); */
+  z-index: 40;
+}
+
+/* Main Content Wrapper */
+.ap-dashboard-main {
+  margin-left: 0;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.ap-dashboard-header h1 {
+  color: white;
+
+}
+
+/* Header */
+.ap-dashboard-header {
+  /* background: var(--card-background); */
+  background:  #0f172a;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ap-dashboard-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 1.5rem;
+}
+
+.ap-dashboard-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ap-dashboard-menu-btn:hover {
+  background: var(--background-color);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+.ap-dashboard-menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ap-dashboard-header-title {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.ap-dashboard-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.ap-dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Notification Button */
+.ap-dashboard-notification-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  background: transparent;
+  /* border: 1px solid var(--border-color); */
+  border-radius: 8px;
+  color: var(--text-secondary);
+  border: none ;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ap-dashboard-notification-btn:hover {
+
+  /* background: var(--background-color); */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.ap-dashboard-notification-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.ap-dashboard-notification-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* User Menu */
+.ap-dashboard-user-menu {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background:  #0f172a;
+  border-radius: 12px;
+  /* border: 1px solid var(--border-color); */
+}
+
+.ap-dashboard-user-info {
+  text-align: right;
+}
+
+.ap-dashboard-user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  /* color: var(--text-primary); */
+  color: white;
+  line-height: 1.2;
+}
+
+.ap-dashboard-user-role {
+  font-size: 0.75rem;
+  /* color: var(--text-secondary); */
+  color: white;
+  line-height: 1.2;
+}
+
+.ap-dashboard-user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ap-dashboard-user-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Main Content */
+.ap-dashboard-content {
+  padding: 1rem;
+}
+
+/* Responsive Design */
+
+/* Large screens - Show sidebar space and user menu */
+@media (min-width: 1024px) {
+  .ap-dashboard-main {
+    margin-left: 280px;
+  }
+  
+  .ap-dashboard-menu-btn {
+    display: none;
+  }
+  
+  .ap-dashboard-user-menu {
+    display: flex;
+  }
+  
+  .ap-dashboard-content {
+    padding: 0rem;
+  }
+  
+  .ap-dashboard-header-title {
+    margin-left: 0;
+  }
+}
+
+/* Medium screens - Tablet */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .ap-dashboard-header-content {
+    padding: 0 1rem;
+  }
+  
+  .ap-dashboard-content {
+    padding: 1rem;
+  }
+  
+  .ap-dashboard-page-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Small screens - Mobile */
+@media (max-width: 767px) {
+  .ap-dashboard-header-content {
+    padding: 0 1rem;
+  }
+  
+  .ap-dashboard-content {
+    padding: 1rem;
+  }
+  
+  .ap-dashboard-page-title {
+    font-size: 1.125rem;
+  }
+  
+  .ap-dashboard-header-actions {
+    gap: 0.5rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .ap-dashboard-content {
+    padding: 1rem;
+  }
+  
+  .ap-dashboard-page-title {
+    font-size: 1rem;
+  }
+  
+  .ap-dashboard-header-content {
+    padding: 0 0.75rem;
+  }
+}
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  .ap-dashboard {
+    background: #0f172a;
+  }
+  
+  .ap-dashboard-header {
+    background: rgba(30, 41, 59, 0.95);
+    border-bottom-color: #334155;
+  }
+  
+  .ap-dashboard-page-title {
+    color: #f8fafc;
+  }
+  
+  .ap-dashboard-menu-btn,
+  .ap-dashboard-notification-btn {
+    border-color: #475569;
+    color: #cbd5e1;
+  }
+  
+  .ap-dashboard-menu-btn:hover,
+  .ap-dashboard-notification-btn:hover {
+    background: #334155;
+    color: #f8fafc;
+    border-color: #667eea;
+  }
+  
+  .ap-dashboard-user-menu {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .ap-dashboard-user-name {
+    color: #f8fafc;
+  }
+  
+  .ap-dashboard-user-role {
+    color: #cbd5e1;
+  }
+} */
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .ap-dashboard-main,
+  .ap-dashboard-menu-btn,
+  .ap-dashboard-notification-btn {
+    transition: none;
+  }
+}
+
+/* Focus-visible for better keyboard navigation */
+.ap-dashboard-menu-btn:focus-visible,
+.ap-dashboard-notification-btn:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Utility classes for compatibility */
+.bg-background-color { background-color: var(--background-color); }
+.border-border-color { border-color: var(--border-color); }
+.text-text-primary { color: var(--text-primary); }
+.text-text-secondary { color: var(--text-secondary); }
+.text-primary-color { color: var(--primary-color); }
+.bg-primary-color { background-color: var(--primary-color); color: white; }
+.bg-error-color { background-color: var(--error-color); color: white; }
+.text-success-color { color: var(--success-color); }
+.bg-gradient-primary { background: var(--gradient-primary); }
+
+/* Card */
+.card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.card-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+}
+.card-body { padding: 1rem; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem; border-radius: 8px; font-weight: 600; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
+.btn:focus { outline: 2px solid rgba(37,99,235,0.15); outline-offset: 2px; }
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-secondary { background: transparent; color: var(--text-primary); border-color: var(--border-color); }
+.btn-sm { padding: 0.35rem 0.6rem; font-size: 0.85rem; }
+
+/* Badges */
+.badge { font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; }
+
+/* Small helpers used in DashboardHome lists */
+.badge-primary { background-color: rgba(37,99,235,0.08); color: var(--primary-color); }
+.badge-success { background-color: rgba(16,185,129,0.08); color: var(--success-color); }
+.badge-error { background-color: rgba(239,68,68,0.08); color: var(--error-color); }

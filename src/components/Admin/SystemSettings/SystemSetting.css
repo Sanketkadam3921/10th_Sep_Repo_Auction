@@ -1,0 +1,38 @@
+/* General Settings form responsiveness */
+.admin-card-body .input {
+    width: 100%;
+    /* Ensure full width always */
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+}
+
+.admin-card-body label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .admin-card-body .grid {
+        grid-template-columns: 1fr !important;
+        /* Force single column */
+        gap: 1rem;
+        /* Add spacing between fields */
+    }
+
+    .admin-card-body .col-span-1,
+    .admin-card-body .md\\:col-span-2,
+    .admin-card-body .lg\\:col-span-3 {
+        grid-column: span 1 / span 1 !important;
+        /* Stack all fields */
+    }
+
+    .admin-card {
+        padding: 1rem;
+        /* Reduce padding for small screens */
+    }
+}

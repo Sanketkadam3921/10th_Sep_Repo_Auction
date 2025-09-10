@@ -1,0 +1,531 @@
+body {
+  /* Use the same color as your other components for a seamless look */
+  background-color: var(--background-color);
+  /* This line is good practice to ensure it covers the whole screen */
+  min-height: 100vh;
+}
+
+/* MyProfile Component Styles */
+.ap-myprofile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 100dvh;
+  /* ensures full viewport without mobile scroll bug */
+
+}
+
+.ap-myprofile-header {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.ap-myprofile-header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ap-myprofile-avatar {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ap-myprofile-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.ap-myprofile-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.ap-myprofile-email {
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+.ap-myprofile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: #dbeafe;
+  color: #2563eb;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Stats Section */
+.ap-myprofile-stats {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.ap-myprofile-stats-header {
+  margin-bottom: 1.5rem;
+}
+
+.ap-myprofile-stats-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ap-myprofile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.ap-myprofile-stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--background-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.ap-myprofile-stat-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  color: white;
+}
+
+.ap-myprofile-stat-icon.blue {
+  background: #3b82f6;
+}
+
+.ap-myprofile-stat-icon.green {
+  background: #10b981;
+}
+
+.ap-myprofile-stat-icon.purple {
+  background: #8b5cf6;
+}
+
+.ap-myprofile-stat-icon.orange {
+  background: #f59e0b;
+}
+
+.ap-myprofile-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.ap-myprofile-stat-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Main Content Grid */
+.ap-myprofile-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .ap-myprofile-content {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Profile Form */
+.ap-myprofile-form-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.ap-myprofile-form-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ap-myprofile-form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ap-myprofile-form-body {
+  padding: 1.5rem;
+}
+
+.ap-myprofile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ap-myprofile-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .ap-myprofile-form-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ap-myprofile-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ap-myprofile-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.ap-myprofile-form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ap-myprofile-form-input,
+.ap-myprofile-form-textarea,
+.ap-myprofile-form-select {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--background-color);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+}
+
+.ap-myprofile-form-input:focus,
+.ap-myprofile-form-textarea:focus,
+.ap-myprofile-form-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.ap-myprofile-form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ap-myprofile-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.ap-myprofile-form-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
+}
+
+.ap-myprofile-form-btn.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.ap-myprofile-form-btn.primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.ap-myprofile-form-btn.secondary {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.ap-myprofile-form-btn.secondary:hover {
+  background: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+/* Activity Section */
+.ap-myprofile-activity {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.ap-myprofile-activity-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ap-myprofile-activity-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ap-myprofile-activity-body {
+  padding: 1.5rem;
+}
+
+.ap-myprofile-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ap-myprofile-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 8px;
+}
+
+.ap-myprofile-activity-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.ap-myprofile-activity-icon.auction {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.ap-myprofile-activity-icon.bid {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.ap-myprofile-activity-icon.profile {
+  background: #e9d5ff;
+  color: #7c3aed;
+}
+
+.ap-myprofile-activity-content {
+  flex: 1;
+}
+
+.ap-myprofile-activity-text {
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.5;
+}
+
+.ap-myprofile-activity-time {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Settings Section */
+.ap-myprofile-settings {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  /* instead of margin-top + extra spacing at bottom */
+
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-color);
+  /* make it same as profile background */
+}
+
+.ap-myprofile-settings-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ap-myprofile-settings-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ap-myprofile-settings-body {
+  padding: 1.5rem;
+}
+
+.ap-myprofile-settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ap-myprofile-settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--background-color);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.ap-myprofile-settings-info {
+  flex: 1;
+}
+
+.ap-myprofile-settings-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.ap-myprofile-settings-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.ap-myprofile-settings-toggle {
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  background: var(--text-secondary);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ap-myprofile-settings-toggle.active {
+  background: var(--primary-color);
+}
+
+.ap-myprofile-settings-toggle::after {
+  content: '';
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.ap-myprofile-settings-toggle.active::after {
+  transform: translateX(1.5rem);
+}
+
+/* Loading Spinner */
+.ap-myprofile-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: ap-myprofile-spin 1s ease-in-out infinite;
+}
+
+@keyframes ap-myprofile-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .ap-myprofile-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ap-myprofile-header {
+    padding: 1.5rem;
+  }
+
+  .ap-myprofile-header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ap-myprofile-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ap-myprofile-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-myprofile-form-actions {
+    flex-direction: column;
+  }
+
+  .ap-myprofile-settings-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ap-myprofile-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ap-myprofile-avatar {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .ap-myprofile-name {
+    font-size: 1.5rem;
+  }
+}
