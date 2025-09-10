@@ -400,7 +400,7 @@ const AdminHome: React.FC = () => {
                 onClick={() => navigate("/admin/users")}
               >
                 <Users className="w-4 h-4 mr-2" />
-                Approve Pending Users
+                Manage Users
               </button>
 
               {/* Review Auction Requests */}
@@ -418,7 +418,7 @@ const AdminHome: React.FC = () => {
                 onClick={() => navigate("/admin/reports")}
               >
                 <TrendingUp className="w-4 h-4 mr-2" />
-                Generate Reports
+                Reports
               </button>
             </div>
           </div>
