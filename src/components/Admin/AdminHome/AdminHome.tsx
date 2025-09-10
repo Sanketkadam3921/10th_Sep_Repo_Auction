@@ -281,7 +281,6 @@ const AdminHome: React.FC = () => {
           <h1 className="text-3xl font-bold text-primary">Admin Dashboard</h1>
           <div className="system-status">
             <Activity className="w-4 h-4 mt-2 mr-2" />
-            <span>System Status: {dashboardStats.systemHealth}</span>
           </div>
         </div>
 

@@ -350,13 +350,11 @@ const ManageAuctions: React.FC = () => {
                       <td data-label="Schedule">
                         <div>
                           <div className="mt-2 mr-2 items-center">
-                            {new Date(auction.startDate).toLocaleDateString()}
+                            {auction.startDate}
                           </div>
                           <div className=" items-center">
                             {auction.startTime} - {auction.endTime || 'N/A'}
                           </div>
-
-
                         </div>
                       </td>
                       <td data-label="Participants">
