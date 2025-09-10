@@ -257,7 +257,6 @@ const ManageAuctions: React.FC = () => {
           className="input"
         >
           <option value="all">All Status</option>
-          <option value="approved">Approved</option>
           <option value="upcoming">Upcoming</option>
 
           <option value="active">Active</option>

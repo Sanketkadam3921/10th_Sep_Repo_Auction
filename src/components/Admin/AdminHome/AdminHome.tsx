@@ -18,6 +18,7 @@ import './AdminHome.css';
 import LoadingGate from '../../Common/LoadingGate';
 import adminService from '../../../services/adminService';
 import { useAuth } from '../../../contexts/AuthContext';
+import { useNavigate } from "react-router-dom";
 
 // Type definitions for improved code clarity and bug prevention
 interface Stat {
@@ -56,6 +57,7 @@ interface QuickAction {
 
 const AdminHome: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const [dashboardStats, setDashboardStats] = useState(() => ({
     totalUsers: 0,
@@ -392,15 +394,29 @@ const AdminHome: React.FC = () => {
           </div>
           <div className="card-body">
             <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
-              <button className="btn btn-primary">
+              {/* Approve Pending Users */}
+              <button
+                className="btn btn-primary"
+                onClick={() => navigate("/admin/users")}
+              >
                 <Users className="w-4 h-4 mr-2" />
                 Approve Pending Users
               </button>
-              <button className="btn btn-secondary">
+
+              {/* Review Auction Requests */}
+              <button
+                className="btn btn-secondary"
+                onClick={() => navigate("/admin/auctions")}
+              >
                 <Gavel className="w-4 h-4 mr-2" />
                 Review Auction Requests
               </button>
-              <button className="btn btn-outline">
+
+              {/* Generate Reports */}
+              <button
+                className="btn btn-outline"
+                onClick={() => navigate("/admin/reports")}
+              >
                 <TrendingUp className="w-4 h-4 mr-2" />
                 Generate Reports
               </button>
