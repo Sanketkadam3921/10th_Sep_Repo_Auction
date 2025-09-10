@@ -296,7 +296,7 @@ const MyProfile: React.FC = () => {
         </div>
       </div>
 
-      {/* SMS Notification Info */}
+      {/* SMS Notification Info 
       <div className="card">
         <div className="card-header">
           <h2 className="text-xl font-semibold text-text-primary">
@@ -336,7 +336,7 @@ const MyProfile: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 };
